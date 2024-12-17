@@ -25,6 +25,6 @@ server.bindAsync(
 			return;
 		}
 
-		console.log(`dll runner service running on port ${port}`);
+		console.log(`32bit-dll-runner service running on port ${port}`);
 	},
 );

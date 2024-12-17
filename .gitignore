@@ -2,3 +2,4 @@
 node_modules
 dist
 32bit-dll-runner.exe
+__pycache__

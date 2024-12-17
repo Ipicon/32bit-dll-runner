@@ -28,7 +28,7 @@
 		"url": "git+https://github.com/Ipicon/32bit-dll-runner.git"
 	},
 	"engines": {
-		"//": "the package has to be node14 compatible because of pkg, but due node14 being old development is done on node18",
+		"//": "the package has to be node14 compatible because of pkg, but due node14 being old development is done on node18(because of ffi-napi).",
 		"node": "^14 || ^18"
 	},
 	"exports": "./index.js",
