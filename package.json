@@ -2,10 +2,10 @@
 	"name": "32bit-dll-runner",
 	"version": "1.0.0",
 	"description": "A utility for running 32-bit DLLs and retrieving their output on a 64-bit client via gRPC.",
-	"main": "./dist/server/index.js",
-	"bin": "./dist/server/index.js",
+	"main": "./dist/index.js",
+	"bin": "./dist/index.js",
 	"scripts": {
-		"server": "tsx watch src/server/index.ts",
+		"server": "tsx watch src/index.ts",
 		"build": "pkgroll",
 		"build-protos": "sh proto/build.sh",
 		"build-exe": "npm run build-protos && npm run build && pkg .",

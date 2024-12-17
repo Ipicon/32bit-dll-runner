@@ -1,6 +1,6 @@
 import { Server, ServerCredentials } from "@grpc/grpc-js";
 import { dllRunnerService } from "./dll-runner-service";
-import { DllRunnerService } from "../../gen/dllrunner_grpc_pb";
+import { DllRunnerService } from "../gen/dllrunner_grpc_pb";
 import { Command } from "commander";
 
 const server = new Server();

@@ -6,7 +6,7 @@ module.exports = async () => {
 
 	// @ts-expect-error
 	globalThis.servers = await setupDevServer({
-		command: "tsx src/server/index.ts --port=5000",
+		command: "tsx src/index.ts --port=5000",
 		launchTimeout: 50000,
 		port: 5000,
 	});

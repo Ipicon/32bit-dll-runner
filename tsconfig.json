@@ -19,6 +19,8 @@
 		"isolatedModules": true,
 
 		"verbatimModuleSyntax": true,
-		"strict": true
+		"strict": true,
+		"target": "ESNext",
+		"skipLibCheck": true
 	}
 }

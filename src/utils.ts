@@ -1,7 +1,7 @@
 import ref, { types } from "ref-napi";
 import StructType, { type StructObject } from "ref-struct-di";
 import ArrayType, { type TypedArray } from "ref-array-di";
-import { type FieldType, FieldTypeEnum } from "../../gen/dllrunner_pb";
+import { type FieldType, FieldTypeEnum } from "../gen/dllrunner_pb";
 import type { Type } from "ref-napi";
 import type * as jspb from "google-protobuf";
 import type { JavaScriptValue } from "google-protobuf/google/protobuf/struct_pb";

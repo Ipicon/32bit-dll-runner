@@ -1,11 +1,11 @@
 import { buildResponseValue, buildType } from "./utils";
-import { RunDllResponse } from "../../gen/dllrunner_pb";
+import { RunDllResponse } from "../gen/dllrunner_pb";
 import { Library } from "ffi-napi";
 import {
 	Value,
 	type JavaScriptValue,
 } from "google-protobuf/google/protobuf/struct_pb";
-import type { IDllRunnerServer } from "../../gen/dllrunner_grpc_pb";
+import type { IDllRunnerServer } from "../gen/dllrunner_grpc_pb";
 import type { Type } from "ref-napi";
 
 const runDll: IDllRunnerServer["runDll"] = ({ request }, callback) => {
