@@ -1,0 +1,74 @@
+{
+	"name": "32bit-dll-runner",
+	"version": "1.0.0",
+	"description": "A utility for running 32-bit DLLs and retrieving their output on a 64-bit client via gRPC.",
+	"main": "./dist/server/index.js",
+	"bin": "./dist/server/index.js",
+	"scripts": {
+		"server": "tsx watch src/server/index.ts",
+		"build": "pkgroll",
+		"build-protos": "sh proto/build.sh",
+		"build-exe": "npm run build-protos && npm run build && pkg .",
+		"type-check": "tsc --noEmit",
+		"tests": "jest",
+		"prepare": "simple-git-hooks"
+	},
+	"pkg": {
+		"assets": [
+			"node_modules/ffi-napi/prebuilds/win32-ia32/node.napi.uv1.node",
+			"node_modules/ref-napi/prebuilds/win32-ia32/node.napi.node"
+		],
+		"targets": ["node14-win-x86"]
+	},
+	"simple-git-hooks": {
+		"pre-commit": "npm run type-check"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Ipicon/32bit-dll-runner.git"
+	},
+	"engines": {
+		"//": "the package has to be node14 compatible because of pkg, but due node14 being old development is done on node18",
+		"node": "^14 || ^18"
+	},
+	"exports": "./index.js",
+	"keywords": ["32-bit", "dll", "grpc", "interop", "64-bit"],
+	"author": "Max Shulov",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Ipicon/32bit-dll-runner/issues"
+	},
+	"os": ["win32"],
+	"cpu": ["ia32"],
+	"homepage": "https://github.com/Ipicon/32bit-dll-runner#readme",
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@types/ffi-napi": "^4.0.10",
+		"@types/google-protobuf": "^3.15.12",
+		"@types/jest": "^29.5.14",
+		"@types/ref-array-di": "^1.2.8",
+		"grpc_tools_node_protoc_ts": "^5.3.3",
+		"grpc-tools": "^1.12.4",
+		"jest": "^29.7.0",
+		"jest-dev-server": "^10.1.4",
+		"node-gyp": "^9.4.1",
+		"pkg": "^4.5.1",
+		"pkgroll": "^2.5.1",
+		"simple-git-hooks": "^2.11.1",
+		"ts-jest": "^29.2.5",
+		"ts-loader": "^9.5.1",
+		"ts-node": "^10.9.2",
+		"tsx": "^4.19.2",
+		"typescript": "^5.7.2"
+	},
+	"dependencies": {
+		"@grpc/grpc-js": "^1.12.4",
+		"commander": "^10.0.1",
+		"ffi-napi": "^4.0.3",
+		"google-protobuf": "^3.21.4",
+		"ref-array-di": "^1.2.2",
+		"ref-napi": "^3.0.3",
+		"ref-struct-di": "^1.1.1",
+		"util": "^0.12.5"
+	}
+}

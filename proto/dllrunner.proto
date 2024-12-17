@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+package dllrunner;
+
+enum FieldTypeEnum {
+    STRING = 0;
+    INT = 1;
+    CHAR = 2;
+    FLOAT = 3;
+    DOUBLE = 4;
+    BOOLEAN = 5;
+    VOID = 6;
+    STRUCT = 7;
+    ARRAY = 8;
+    POINTER = 9; // difference between pointer and array is that an array needs allocation before use, so length is mandatory
+    BYTE = 10;
+    LONG = 11;
+    INT64 = 12;
+    INT8 = 13;
+    INT16 = 14;
+    INT32 = 15;
+    UINT8 = 16;
+    UINT16 = 17;
+    UINT32 = 18;
+    UINT64 = 19;
+    LONGLONG = 20;
+    SHORT = 21;
+    USHORT = 22;
+    SIZE_T = 23;
+    UCHAR = 24;
+    UINT = 25;
+    ULONG = 26;
+    ULONGLONG = 27;
+}
+
+message FieldType {
+    FieldTypeEnum field_type = 1; // required
+    map<string, FieldType> struct_shape = 2;
+    FieldType array_shape = 3;
+    int32 array_length = 4;
+}
+
+message Argument {
+    FieldTypeEnum type = 1; // required
+    google.protobuf.Value value = 2; // required
+    map<string, FieldType> struct_shape = 3;
+    FieldType array_shape = 4;
+    int32 array_length = 5;
+}
+
+message RunDllRequest {
+    string dll_path = 1; // required
+    string func_name = 2; // required
+    FieldTypeEnum return_type = 3; // required
+    repeated Argument arguments = 4;
+    map<string, FieldType> struct_shape = 5;
+    FieldType array_shape = 6;
+    int32 array_length = 7;
+}
+
+message RunDllResponse {
+    google.protobuf.Value response = 1;
+}
+
+service DllRunner {
+    rpc RunDll(RunDllRequest) returns (RunDllResponse);
+}
