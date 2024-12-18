@@ -14,7 +14,7 @@ enum FieldTypeEnum {
     VOID = 6;
     STRUCT = 7;
     ARRAY = 8;
-    POINTER = 9; // difference between pointer and array is that an array needs allocation before use, so length is mandatory
+    POINTER = 9; // The main difference between a pointer and an array is that an array requires explicit memory allocation, and therefore, the length must be specified.
     BYTE = 10;
     LONG = 11;
     INT64 = 12;

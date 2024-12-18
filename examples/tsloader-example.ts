@@ -33,7 +33,7 @@ const example = async () => {
 		returnType: FieldTypeEnum.STRING,
 	});
 
-	console.log(Object.values(simpleResponse?.response)[0]);
+	console.log(Object.values(simpleResponse?.response || {})[0]);
 
 	const shape = {
 		a: {
@@ -71,7 +71,7 @@ const example = async () => {
 		],
 	});
 
-	console.log(Object.values(response?.response)[0]);
+	console.log(Object.values(response?.response || {})[0]);
 
 	child.kill();
 };

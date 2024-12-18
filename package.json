@@ -68,8 +68,6 @@
 		"pkgroll": "^2.5.1",
 		"simple-git-hooks": "^2.11.1",
 		"ts-jest": "^29.2.5",
-		"ts-loader": "^9.5.1",
-		"ts-node": "^10.9.2",
 		"tsx": "^4.19.2",
 		"typescript": "^5.7.2"
 	},
