@@ -21,6 +21,9 @@
 		"verbatimModuleSyntax": true,
 		"strict": true,
 		"target": "ESNext",
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"paths": {
+			"@gen/*": ["./gen/*"],
+		}
 	}
 }

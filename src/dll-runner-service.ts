@@ -1,5 +1,5 @@
 import { buildResponseValue, buildType } from "./utils";
-import { RunDllResponse } from "../gen/dllrunner_pb";
+import { RunDllResponse } from "@gen/dllrunner_pb";
 import { Library } from "ffi-napi";
 import {
 	Value,

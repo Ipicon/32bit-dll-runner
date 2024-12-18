@@ -18,7 +18,9 @@
 			"node_modules/ffi-napi/prebuilds/win32-ia32/node.napi.uv1.node",
 			"node_modules/ref-napi/prebuilds/win32-ia32/node.napi.node"
 		],
-		"targets": ["node14-win-x86"]
+		"targets": [
+			"node14-win-x86"
+		]
 	},
 	"simple-git-hooks": {
 		"pre-commit": "npm run type-check"
@@ -32,14 +34,24 @@
 		"node": "^14 || ^18"
 	},
 	"exports": "./index.js",
-	"keywords": ["32-bit", "dll", "grpc", "interop", "64-bit"],
+	"keywords": [
+		"32-bit",
+		"dll",
+		"grpc",
+		"interop",
+		"64-bit"
+	],
 	"author": "Max Shulov",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/Ipicon/32bit-dll-runner/issues"
 	},
-	"os": ["win32"],
-	"cpu": ["ia32"],
+	"os": [
+		"win32"
+	],
+	"cpu": [
+		"ia32"
+	],
 	"homepage": "https://github.com/Ipicon/32bit-dll-runner#readme",
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
@@ -63,6 +75,7 @@
 	},
 	"dependencies": {
 		"@grpc/grpc-js": "^1.12.4",
+		"@grpc/proto-loader": "^0.7.13",
 		"commander": "^10.0.1",
 		"ffi-napi": "^4.0.3",
 		"google-protobuf": "^3.21.4",
