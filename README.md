@@ -255,27 +255,27 @@ const shape = {
 		},
 	};
 
-	const response = await runDll({
-		dllPath: "mylib32.dll",
-		funcName: "structArg",
-		returnType: FieldTypeEnum.STRUCT,
-		structShape: shape,
-		arguments: [
-			{
-				type: FieldTypeEnum.STRUCT,
-				structShape: shape,
-				value: {
-					structValue: {
-						fields: {
-							a: { numberValue: 5 },
-							b: { stringValue: "A" },
-							c: { stringValue: "D" },
-						},
-					},
-				},
-			},
-		],
-	});
+const response = await runDll({
+    dllPath: "mylib32.dll",
+    funcName: "structArg",
+    returnType: FieldTypeEnum.STRUCT,
+    structShape: shape,
+    arguments: [
+        {
+            type: FieldTypeEnum.STRUCT,
+            structShape: shape,
+            value: {
+                structValue: {
+                    fields: {
+                        a: { numberValue: 5 },
+                        b: { stringValue: "A" },
+                        c: { stringValue: "D" },
+                    },
+                },
+            },
+        },
+    ],
+});
 ```
 
 ### with `grpc_tools_node_protoc_ts`:
@@ -285,31 +285,23 @@ const structArg = new Argument()
 		.setType(FieldTypeEnum.STRUCT)
 		.setValue(Value.fromJavaScript({ a: 5, b: "A", c: "D" }));
 
-	structArg
-		.getStructShapeMap()
-		.set("a", new FieldType().setFieldType(FieldTypeEnum.INT));
-	structArg
-		.getStructShapeMap()
-		.set("b", new FieldType().setFieldType(FieldTypeEnum.CHAR));
-	structArg
-		.getStructShapeMap()
-		.set("c", new FieldType().setFieldType(FieldTypeEnum.CHAR));
+structArg
+    .getStructShapeMap()
+    .set("a", new FieldType().setFieldType(FieldTypeEnum.INT))
+    .set("b", new FieldType().setFieldType(FieldTypeEnum.CHAR))
+    .set("c", new FieldType().setFieldType(FieldTypeEnum.CHAR));
 
-	const dllRequest = new RunDllRequest()
-		.setDllPath(DLL_PATH)
-		.setFuncName("structArg")
-		.setReturnType(FieldTypeEnum.STRUCT)
-		.setArgumentsList([structArg]);
+const dllRequest = new RunDllRequest()
+    .setDllPath(DLL_PATH)
+    .setFuncName("structArg")
+    .setReturnType(FieldTypeEnum.STRUCT)
+    .setArgumentsList([structArg]);
 
-	dllRequest
-		.getStructShapeMap()
-		.set("a", new FieldType().setFieldType(FieldTypeEnum.INT));
-	dllRequest
-		.getStructShapeMap()
-		.set("b", new FieldType().setFieldType(FieldTypeEnum.CHAR));
-	dllRequest
-		.getStructShapeMap()
-		.set("c", new FieldType().setFieldType(FieldTypeEnum.CHAR));
+dllRequest
+    .getStructShapeMap()
+    .set("a", new FieldType().setFieldType(FieldTypeEnum.INT))
+    .set("b", new FieldType().setFieldType(FieldTypeEnum.CHAR))
+    .set("c", new FieldType().setFieldType(FieldTypeEnum.CHAR));
 
 	const response = await runDll(dllRequest);
 ```

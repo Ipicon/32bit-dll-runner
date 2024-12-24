@@ -10,10 +10,7 @@ import {
 	RunDllRequest,
 	type RunDllResponse,
 } from "../gen/dllrunner_pb";
-import {
-	getDllRunnerClient,
-	unpackResponse,
-} from "./test-utils/test-utils";
+import { getDllRunnerClient, unpackResponse } from "./test-utils/test-utils";
 import * as jspb from "google-protobuf";
 
 const DLL_PATH = "./mylib32.dll";
@@ -478,12 +475,8 @@ it("accept a struct as an argument", async () => {
 
 	structArg
 		.getStructShapeMap()
-		.set("a", new FieldType().setFieldType(FieldTypeEnum.INT));
-	structArg
-		.getStructShapeMap()
-		.set("b", new FieldType().setFieldType(FieldTypeEnum.CHAR));
-	structArg
-		.getStructShapeMap()
+		.set("a", new FieldType().setFieldType(FieldTypeEnum.INT))
+		.set("b", new FieldType().setFieldType(FieldTypeEnum.CHAR))
 		.set("c", new FieldType().setFieldType(FieldTypeEnum.CHAR));
 
 	const dllRequest = new RunDllRequest()
@@ -494,12 +487,8 @@ it("accept a struct as an argument", async () => {
 
 	dllRequest
 		.getStructShapeMap()
-		.set("a", new FieldType().setFieldType(FieldTypeEnum.INT));
-	dllRequest
-		.getStructShapeMap()
-		.set("b", new FieldType().setFieldType(FieldTypeEnum.CHAR));
-	dllRequest
-		.getStructShapeMap()
+		.set("a", new FieldType().setFieldType(FieldTypeEnum.INT))
+		.set("b", new FieldType().setFieldType(FieldTypeEnum.CHAR))
 		.set("c", new FieldType().setFieldType(FieldTypeEnum.CHAR));
 
 	const response = await runDll(dllRequest);
