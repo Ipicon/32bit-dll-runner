@@ -12,7 +12,7 @@ This utility is ideal for situations where you need to maintain compatibility wi
 
 1. Download the latest [release](https://github.com/Ipicon/32bit-dll-runner/releases).
 2. Add `32bit-dll-runner.exe` to your system's `PATH`.
-3. compile the `dllrunner.proto` fiel to a language of your choice.
+3. compile the `dllrunner.proto` file to a language of your choice.
 4. Start interacting with your DLLs via the provided API.
 
 ## Build and install from source
